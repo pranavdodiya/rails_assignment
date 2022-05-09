@@ -1,8 +1,9 @@
+<h2>patient name:</h2>
 <h1><%= @patient.name %></h1>
-
 <p><%= @patient.email %></p>
-
-<p> All Physicians<p>
-<% @patient.physicians.each do |t|%>
+<br>
+<br>
+<h4> Related All Physicians names: </h4>
+<h5><% @patient.physicians.each do |t|%>
     <%= t.name %>
-<%end%>
+<%end%></h5>

@@ -1,9 +1,14 @@
+<h2>Sector name:</h2>
 <h2><%= @sector.name %></h2>
-<p>Industries</p>
-<% @sector.industries.each do |t|%>
+<br>
+<br>
+
+<h3>Show Related Industries</h3>
+<h5><% @sector.industries.each do |t|%>
     <%= t.name%>
     <%= t.email%>
-    <%end%>
+    <br>
+    <%end%></h5>
     
 
 
