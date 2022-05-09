@@ -1,0 +1,11 @@
+<h1><%= @physician.name %></h1>
+
+<p><%= @physician.email %></p>
+<p><%= @physician.unique_id%></p>
+<h4>patients<h4>
+<% @physician.patients.each do |t|%>
+    <%= t.name %>
+    <%= t.email %>
+    <br>
+<%end%>
+

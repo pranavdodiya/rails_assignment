@@ -1,0 +1,24 @@
+<h1>New Sector </h1>
+<%= form_with model:@sector do |form|%>
+    <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    </div>
+    <div class="field">
+    <% for industry in Industry.all %>
+        <div>
+            <%= check_box_tag "sector[industry_ids][]", industry.id,@sector.industries.include?(industry) %>
+            <%= industry.name %>
+        </div>
+    <% end %>
+    </div>
+    <div>
+    <%= form.submit %>
+    </div>
+
+
+<%end%>
+
+    
+
+

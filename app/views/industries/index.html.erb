@@ -1,0 +1,25 @@
+<h1>Listing all Industries<h1>
+<br>
+<%= link_to "Create New Industry", new_industry_path %>
+<br>
+<br>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Registration Number</th>
+    <th>Sectors in Industry</th>
+  </tr>
+
+<% @industries.each do |p| %>
+  <tr>
+    <td><%= p.name %></td>
+    <td><%= p.email %></td>
+    <td><%= p.registration_number %></td>
+    <td><%= p.sectors.count%></td>
+    
+    <td><%= link_to 'show',industry_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+  </tr>
+<% end %>
+</table>
+

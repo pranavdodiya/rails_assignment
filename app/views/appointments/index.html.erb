@@ -1,0 +1,21 @@
+
+
+<h2>Listing Appointment</h2>
+<br/>
+<table class="table">
+  <tr>
+    <th>Date</th>
+    <th>Patient</th>
+    <th>Physician</th>
+  </tr>
+
+<% @appointments.each do |p| %>
+  <tr>
+    <td><%= p.appointment_date%></td>
+    <td><%= Patient.find(p.patient_id).name %></td>
+    <td><%= Physician.find(p.physician_id).unique_id %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'New Appointment', new_appointment_path %>
+

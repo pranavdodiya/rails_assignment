@@ -1,0 +1,19 @@
+<h1>New Physician</h1>
+
+<%= form_with model: @physician do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %><br>
+    
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

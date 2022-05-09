@@ -1,0 +1,22 @@
+<h1>Listing all Patients <h1>
+<br>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Show all physicians</th>
+    <th> No. of Appointment</th>
+  </tr>
+
+<% @patients.each do |patient| %>
+  <tr>
+    <td><%= patient.name %></td>
+    <td><%= patient.email %></td>
+    <td><%= link_to 'show all physicians',patient_path(patient),class: "btn btn-sm btn-outline-dark" %></td>
+    <td><%= patient.appointments.count %></td>
+     
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New patient", new_patient_path %>

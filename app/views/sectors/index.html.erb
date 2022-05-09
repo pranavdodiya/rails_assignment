@@ -1,0 +1,21 @@
+<h3>Listing all Sectors<h3>
+<br>
+<%= link_to " Create New sector", new_sector_path %>
+<br>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Industries</th>
+  </tr>
+
+<% @sectors.each do |p| %>
+  <tr>
+    <td><%= p.name %></td>
+    <td><%= p.industries.count%></td>
+    
+    <td><%= link_to 'show',sector_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+  </tr>
+<% end %>
+</table>
+

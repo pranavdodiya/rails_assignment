@@ -1,0 +1,28 @@
+<h1>Listing all Physician <h1>
+<br>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>ID</th>
+    
+    
+    <th>show patients</th>
+    <th>Total Appointments</th>
+
+  </tr>
+
+<% @physicians.each do |physician| %>
+  <tr>
+    <td><%= physician.name %></td>
+    <td><%= physician.email %></td>
+    <td><%= physician.unique_id %></td>
+    <td><%= link_to 'show all patients' ,physician_path(physician),class: "btn btn-sm btn-outline-dark" %></td>
+    <td><%= physician.patients.uniq.count %></td>
+   
+     
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New physician", new_physician_path %>

@@ -1,0 +1,8 @@
+<h1><%= @patient.name %></h1>
+
+<p><%= @patient.email %></p>
+
+<p> All Physicians<p>
+<% @patient.physicians.each do |t|%>
+    <%= t.name %>
+<%end%>

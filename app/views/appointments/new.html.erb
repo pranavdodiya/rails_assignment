@@ -1,0 +1,24 @@
+<h1>New Appointment</h1>
+
+<%= form_with model: @appointment do |form| %>
+  <div>
+    <%= form.label :date %><br>
+    <%= form.date_field:appointment_date %>
+
+  </div>
+
+  <div>
+    <%= form.label :physician_id %><br>
+    <%= form.select:physician_id,Physician.all.map{ |t| [t.unique_id ,t.id]},{} %><br>
+    
+  </div>
+
+  <div>
+    <%= form.label :patient_id %><br>
+    <%= form.select :patient_id,Patient.all.map{ |t| [t.name, t.id]},{} %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

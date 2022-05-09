@@ -1,0 +1,6 @@
+<h1><%= @industry.name %></h1>
+<p>Sectors</p>
+<% @industry.sectors.each do |a|%>
+    <%= a.name %>
+    <br>
+    <%end%>
