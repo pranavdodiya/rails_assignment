@@ -1,15 +1,15 @@
 <h1>Listing all Physician <h1>
 <br>
+<%= link_to "New physician", new_physician_path %>
+<br>
 <table class="table">
   <tr>
     <th>Name</th>
     <th>Email</th>
     <th>ID</th>
-    
-    
-    <th>Related patients</th>
     <th>Total Appointments</th>
-
+    <th>Actions</th>
+    
   </tr>
 
 <% @physicians.each do |physician| %>
@@ -17,12 +17,15 @@
     <td><%= physician.name %></td>
     <td><%= physician.email %></td>
     <td><%= physician.unique_id %></td>
-    <td><%= link_to 'show all patients' ,physician_path(physician),class: "btn btn-sm btn-outline-dark" %></td>
     <td><%= physician.patients.uniq.count %></td>
-   
-     
+    <td><%= link_to 'show' ,physician_path(physician),class: "btn btn-sm btn-outline-dark" %>
+    <%= link_to 'Edit' , edit_physician_path(physician),class: "btn btn-sm btn-outline-dark" %>
+    <%= link_to 'Delete' ,physician_path(physician), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"} ,class: "btn btn-sm btn-outline-dark" %>
+    </td>
+       
   </tr>
 <% end %>
 </table>
 
-<%= link_to "New physician", new_physician_path %>

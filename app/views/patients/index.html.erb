@@ -4,16 +4,24 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Related Physicians</th>
     <th> No. of Appointment</th>
+    <th>Actions</th>
+    
   </tr>
 
 <% @patients.each do |patient| %>
   <tr>
     <td><%= patient.name %></td>
     <td><%= patient.email %></td>
-    <td><%= link_to 'show ',patient_path(patient),class: "btn btn-sm btn-outline-dark" %></td>
     <td><%= patient.appointments.count %></td>
+    <td><%= link_to 'show ',patient_path(patient),class: "btn btn-sm btn-outline-dark" %>
+    <%= link_to 'Update ',edit_patient_path(patient),class: "btn btn-sm btn-outline-dark" %>
+    <%= link_to 'delete ',patient_path(patient), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"} ,class: "btn btn-sm btn-outline-dark" %>
+    </td>
+
+    
      
   </tr>
 <% end %>

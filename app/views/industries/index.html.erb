@@ -9,6 +9,7 @@
     <th>Email</th>
     <th>Registration Number</th>
     <th>Sectors in Industry</th>
+    <th>Actions</th>
   </tr>
 
 <% @industries.each do |p| %>
@@ -18,7 +19,11 @@
     <td><%= p.registration_number %></td>
     <td><%= p.sectors.count%></td>
     
-    <td><%= link_to 'show',industry_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+    <td><%= link_to 'show',industry_path(p),class: "btn btn-sm btn-outline-dark" %>
+    <%= link_to 'Edit',edit_industry_path(p),class: "btn btn-sm btn-outline-dark" %>
+    <%= link_to 'Delete',industry_path(p), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"},class: "btn btn-sm btn-outline-dark" %></td> 
   </tr>
 <% end %>
 </table>

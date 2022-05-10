@@ -18,6 +18,26 @@ class PhysiciansController< ApplicationController
         end
     end
 
+    def edit
+        @physician=Physician.find(params[:id])
+        
+    end 
+    
+    def destroy
+        @physician=Physician.find(params[:id])
+        @physician.destroy
+
+        redirect_to physicians_path
+
+    end
+
+    def update
+        @physician =Physician.find(params[:id])
+        if @physician.update(physician_params)
+            redirect_to physicians_path
+        end
+    end
+
     private
         def physician_params
             params.require(:physician).permit(:name,:email)
